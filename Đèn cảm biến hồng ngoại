@@ -1,0 +1,24 @@
+int cambien = 7;
+int gtcambien;
+int den = 8;
+void setup()
+{
+  Serial.begin(9600);
+  pinMode(cambien, INPUT);
+  pinMode(den, OUTPUT);
+}
+void loop()
+  gtcambien = digitalRead(cambien);
+  Serial.print("Giá trị cảm biến: ");
+  Serial.println(gtcambien);
+  
+  if(gtcambien == 0)
+  {Serial.println("...............Có vật cản");
+  digitalWrite(den, HIGH);
+  delay(75000);
+  }
+  else
+  {
+  Serial.println("........Không có vật cản");
+  digitalWrite(den, LOW);
+  }
